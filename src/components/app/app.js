@@ -7,6 +7,7 @@ import {AboutUs, WelcomePage, Donations} from "../pages"
 import './app.css'
 
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import MapiService from "../../services/mapi-service";
 
 
 export default class App extends Component{
@@ -14,7 +15,8 @@ export default class App extends Component{
     state = {
         selectedItem: null,
         hasError: false,
-        isLoggedIn: false
+        isLoggedIn: false,
+        mapiService: new MapiService()
     }
 
     onLogin = () => {
