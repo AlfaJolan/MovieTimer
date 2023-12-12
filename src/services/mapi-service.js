@@ -2,7 +2,7 @@ export default class MapiService{
     //_apiBase="https://api.themoviedb.org/3/movie/popular?api_key=<<api_key_here>>"
     _apiSearch="https://api.themoviedb.org/3/search/movie?api_key=<<api_key_here>>&query"
     _apiBase = 'https://api.themoviedb.org/3';
-    _apiKey = '<<your_api_key>>'; // Пожалуйста, замените на свой ключ API
+    _apiKey = '49b0dcacecc7a685bebabbb4866a4a5e'; // Пожалуйста, замените на свой ключ API
     /*
     getResource = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`)
@@ -27,6 +27,7 @@ export default class MapiService{
     };
     getPopularMovies = async () => {
         const res = await this.getResource('/movie/popular?');
+        console.log(res);
         return res.results;
     };
 
