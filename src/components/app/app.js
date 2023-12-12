@@ -2,14 +2,14 @@ import React, {Component} from 'react'
 
 import Header from '../header'
 import Footer from "../footer";
-import {AboutUs, WelcomePage, Donations, LoginPage, MainTest, SearchPage} from "../pages"
+import {AboutUs, WelcomePage, Donations, LoginPage, MainTest, SearchPage, MainPage} from "../pages"
 
 import './app.css'
 
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MapiService from "../../services/mapi-service";
 import {MapiServiceProvider} from "../mapi-service-context/mapi-service-context";
-import {ErrorIndicator} from "../errors";
+import {ErrorIndicator, NotFoundIndicator} from "../errors";
 import ErrorBoundary from "../error-boundary/error-boundary";
 
 
@@ -64,9 +64,14 @@ export default class App extends Component{
                                         <Route path="/donations" component={Donations} exact />
                                         <Route path = "/main_test" component = {MainTest} exact />
                                         <Route path = "/search" component = {SearchPage} exact />
+                                        <Route path = "/main" component = {MainPage} exact />
+                                        <Route component = {NotFoundIndicator} />
                                     </Switch>
                                     <Footer />
                                 </Route>
+
+                                <Route component = {NotFoundIndicator} />
+
                             </Switch>
                         </div>
                     </Router>

@@ -7,12 +7,12 @@ const ErrorIndicator = () => {
     return (
         <div className="error-indicator">
             <img src={icon} alt="error icon" width={64} height={64}/>
-            <span className="boom">BOOM!</span>
+            <span className="boom">At the end of the way...</span>
             <span>
-                something has gone terribly wrong
+                Something has gone wrong
             </span>
             <span>
-                (but we already sent droids to fix it)
+                I DRIVE (We already fixing issue)
             </span>
         </div>
     )

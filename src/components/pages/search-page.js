@@ -1,4 +1,4 @@
-// MainTest.js
+
 import React, { Component } from "react";
 import MapiService from "../../services/mapi-service";
 import { ErrorIndicator } from "../errors";
@@ -63,7 +63,7 @@ export default class SearchPage extends Component {
         const content = hasData ? <MoviesView movies={movies} /> : null;
         return (
             <div className={"container"}>
-                {/* Используем SearchForm */}
+
                 <SearchForm
                     query={query}
                     changeHandler={this.changeHandler}

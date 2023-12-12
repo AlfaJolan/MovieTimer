@@ -31,6 +31,12 @@ export default class MapiService{
         return res.results;
     };
 
+    getUpcomingMovies = async () => {
+        const res = await this.getResource('/movie/upcoming?');
+        console.log(res);
+        return res.results;
+    };
+
 
     searchMovies = async (query) => {
         const res = await this.getResource(`/search/movie?query=${query}`);

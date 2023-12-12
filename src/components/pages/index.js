@@ -4,6 +4,7 @@ import Donations from "./donuts";
 import LoginPage from "./login";
 import MainTest from "./main-test-page";
 import SearchPage from "./search-page"
+import MainPage from "./main-page";
 
 export {
     AboutUs,
@@ -11,5 +12,6 @@ export {
     LoginPage,
     MainTest,
     SearchPage,
+    MainPage,
     WelcomePage
 }
