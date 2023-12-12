@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import Header from '../header'
 import Footer from "../footer";
-import {AboutUs, WelcomePage, Donations, LoginPage, MainTest} from "../pages"
+import {AboutUs, WelcomePage, Donations, LoginPage, MainTest, SearchPage} from "../pages"
 
 import './app.css'
 
@@ -63,6 +63,7 @@ export default class App extends Component{
                                         <Route path="/about-us" component={AboutUs} exact />
                                         <Route path="/donations" component={Donations} exact />
                                         <Route path = "/main_test" component = {MainTest} exact />
+                                        <Route path = "/search" component = {SearchPage} exact />
                                     </Switch>
                                     <Footer />
                                 </Route>

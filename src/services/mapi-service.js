@@ -31,8 +31,22 @@ export default class MapiService{
         return res.results;
     };
 
+
     searchMovies = async (query) => {
         const res = await this.getResource(`/search/movie?query=${query}`);
+        return res.results;
+    };
+    searchMoviesAdvanced = async ({ query, includeAdult, language, primaryReleaseYear, page, year }) => {
+        const params = new URLSearchParams();
+
+        if (query) params.append('query', query);
+        if (includeAdult !== null && includeAdult !== undefined) params.append('include_adult', includeAdult);
+        if (language) params.append('language', language);
+        if (primaryReleaseYear !== null && primaryReleaseYear !== undefined) params.append('primary_release_year', primaryReleaseYear);
+        if (page !== null && page !== undefined) params.append('page', page);
+        if (year !== null && year !== undefined) params.append('year', year);
+
+        const res = await this.getResource(`/search/movie?${params.toString()}`);
         return res.results;
     };
 
