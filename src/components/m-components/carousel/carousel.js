@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import Card from '../carousel-card'
+import Card from './carousel-card'
 import './carousel2.css';
 // Ваш файл сценария
 import $ from 'jquery';

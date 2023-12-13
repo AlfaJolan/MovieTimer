@@ -42,6 +42,11 @@ export default class MapiService{
         const res = await this.getResource(`/search/movie?query=${query}`);
         return res.results;
     };
+
+    getMovie = async (id) => {
+        const res = await this.getResource(`/movie/${id}?language=en-US`)
+        return res.result;
+    }
     searchMoviesAdvanced = async ({ query, includeAdult, language, primaryReleaseYear, page, year }) => {
         const params = new URLSearchParams();
 

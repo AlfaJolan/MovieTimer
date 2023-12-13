@@ -11,10 +11,6 @@ const WelcomePage = () => {
             Here you can find some new movies, and watch
 
             Go To Main Page!
-            <Spinner />
-            <ErrorIndicator />
-            <NotFoundIndicator />
-
         </div>
     )
 }
