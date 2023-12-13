@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from 'react-router-dom'
 
-const AboutUs = () => {
+const AboutUsPage = () => {
     return (
         <main className={"container"}>
             <div className="d-flex flex-row">
@@ -158,4 +158,4 @@ const AboutUs = () => {
     )
 }
 
-export default withRouter(AboutUs)
+export default withRouter(AboutUsPage)

@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import './item-details.css'
 import MapiService from "../../services/mapi-service";
 import Spinner from "../spinner"
-const API_IMG="https://image.tmdb.org/t/p/w500/";
 import './movie-main-poster.css'
+
+const API_IMG="https://image.tmdb.org/t/p/w500/";
+
 export default class MovieMainPoster extends Component {
 
     mapiService = new MapiService()

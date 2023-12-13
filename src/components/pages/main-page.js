@@ -2,11 +2,9 @@ import React, {Component} from "react";
 import MapiService from "../../services/mapi-service";
 import {ErrorIndicator} from "../errors";
 import Spinner from "../spinner";
-import MovieBox from "../movie-box/movie-box";
-import MoviesView from "../movies-view";
+
 import {MainContent} from "../m-components";
-import $ from 'jquery';
-import "../m-components/carousel-script"
+import "../m-components/carousel/carousel-script"
 
 
 export default class MainPage extends Component{

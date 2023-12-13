@@ -1,3 +1,41 @@
+/*
+import {Carousel} from "bootstrap";
+import $ from 'jquery'
+var multipleCardCarousel = document.querySelector(
+    "#carouselExampleControls"
+);
+if (window.matchMedia("(min-width: 768px)").matches) {
+    var carousel = new Carousel(multipleCardCarousel, {
+        interval: false,
+    });
+    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+    var cardWidth = $(".carousel-item").width();
+    var scrollPosition = 0;
+    $("#carouselExampleControls .carousel-control-next").on("click", function () {
+        if (scrollPosition < carouselWidth - cardWidth * 4) {
+            scrollPosition += cardWidth;
+            $("#carouselExampleControls .carousel-inner").animate(
+                { scrollLeft: scrollPosition },
+                600
+            );
+        }
+    });
+    $("#carouselExampleControls .carousel-control-prev").on("click", function () {
+        if (scrollPosition > 0) {
+            scrollPosition -= cardWidth;
+            $("#carouselExampleControls .carousel-inner").animate(
+                { scrollLeft: scrollPosition },
+                600
+            );
+        }
+    });
+} else {
+    $(multipleCardCarousel).addClass("slide");
+}
+
+*/
+
+/*
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap'
@@ -32,3 +70,5 @@ if (window.matchMedia("(min-width: 768px)").matches) {
 } else {
     $(multipleCardCarousel).addClass("slide");
 }
+
+ */

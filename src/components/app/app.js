@@ -2,7 +2,17 @@ import React, {Component} from 'react'
 
 import Header from '../header'
 import Footer from "../footer";
-import {AboutUs, WelcomePage, Donations, LoginPage, MainTest, SearchPage, MainPage} from "../pages"
+import {
+    AboutUs,
+    WelcomePage,
+    Donations,
+    LoginPage,
+    MainTest,
+    SearchPage,
+    MainPage,
+    RegisterPage,
+    MovieInfo
+} from "../pages"
 
 import './app.css'
 
@@ -49,9 +59,17 @@ export default class App extends Component{
                                 <Route
                                     path="/login"
                                     render={() => (
-                                        // Header и Footer не отображаются на странице login
+                                        // Header и Footer не отображаются на странице login and register
                                         <Switch>
                                             <Route path="/login" render={() => <LoginPage />} exact />
+                                        </Switch>
+                                    )}
+                                />
+                                <Route
+                                    path="/register"
+                                    render={() => (
+                                        <Switch>
+                                            <Route path="/register" render={() => <RegisterPage />} exact />
                                         </Switch>
                                     )}
                                 />
@@ -65,6 +83,7 @@ export default class App extends Component{
                                         <Route path = "/main_test" component = {MainTest} exact />
                                         <Route path = "/search" component = {SearchPage} exact />
                                         <Route path = "/main" component = {MainPage} exact />
+                                        <Route path = "/movie:id?" component = {MovieInfo} exact />
                                         <Route component = {NotFoundIndicator} />
                                     </Switch>
                                     <Footer />

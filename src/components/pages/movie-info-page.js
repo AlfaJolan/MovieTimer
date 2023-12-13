@@ -1,6 +1,6 @@
 import React from "react"
 
-const MovieInfo = ({}) => {
+const MovieInfo = ({history, match}) => {
     return (
         <main className= "container">
             <div className= "d-flex flex-row">
@@ -10,11 +10,11 @@ const MovieInfo = ({}) => {
 
 
                 <section id = "content" className= "order-2 col-lg-10 col-md-10 col-xl-10 col-12 order-sm-1 mx-2">
-                    <!--
+                    {/*<!--
                       <div poster on the left side will be,> there will be columns and after the info about the creators of
                         the filme will be, such like Director, operator, montage and actors and also also. The there will be section with ratings
                         And after that will be sectors with top reviews
-                      -->
+                      -->*/}
 
                     <section id="movie" className= "border border-1 rounded-2 shadow-sm">
                         <div id = "posterMainInfoRating" className= "d-flex flex-row px-3">
@@ -125,6 +125,7 @@ const MovieInfo = ({}) => {
                                         </div>
                                     </div>
                                 </div>
+                                {/*
                                 <!--
                                 <div id = "media" class = "container ps-0 mt-1 d-none d-lg-block d-md-block d-xl-block">
                                   <div class="trailer embed-responsive embed-responsive-16by9">
@@ -132,6 +133,7 @@ const MovieInfo = ({}) => {
                                   </div>
                                 </div>
                               -->
+                              */}
                                 <div id="movieReviews" className= "container">
 
                                 </div>
@@ -165,3 +167,5 @@ const MovieInfo = ({}) => {
         </main>
     )
 }
+
+export default MovieInfo;

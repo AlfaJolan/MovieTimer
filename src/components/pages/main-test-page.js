@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import MapiService from "../../services/mapi-service";
 import {ErrorIndicator} from "../errors";
 import Spinner from "../spinner";
-import MovieBox from "../movie-box/movie-box";
 import MoviesView from "../movies-view";
 
 export default class MainTest extends Component{
