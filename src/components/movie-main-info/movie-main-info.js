@@ -3,6 +3,11 @@ import {withData} from "../hoc-helpers";
 import {withRouter} from "react-router-dom";
 import {MapiServiceConsumer} from "../mapi-service-context";
 import extractYearFromDate from "../../functions/extractYearFromDate";
+import minToHours from "../../functions/minToHours";
+import getProductionCountriesString from "../../functions/getProductionCountriesString";
+import getGenresString from "../../functions/getGenresString";
+import filterAndExtractNames from "../../functions/filterAndExtractNames";
+import concatenateStrings from "../../functions/concatenateStrings";
 /*
 function extractYearFromDate(dateString) {
     // Проверяем, определена ли строка даты
@@ -27,6 +32,7 @@ function extractYearFromDate(dateString) {
     return ''; // Возвращаем значение по умолчанию или обрабатываем ошибку по вашему усмотрению
 }
 */
+/*
 function minToHours(min) {
     // Проверяем, определено ли значение
     if (min === null || typeof min === 'undefined') {
@@ -53,7 +59,8 @@ function minToHours(min) {
 
     return `${formattedHours}:${formattedMinutes}`;
 }
-
+*/
+/*
 function getProductionCountriesString(productionCountries) {
     if (!Array.isArray(productionCountries) || productionCountries.length === 0) {
         return 'No Data';
@@ -69,7 +76,8 @@ function getProductionCountriesString(productionCountries) {
 
     return resultString;
 }
-
+*/
+/*
 function getGenresString(genres) {
     if (!Array.isArray(genres) || genres.length === 0) {
         return 'No data about Genres';
@@ -87,7 +95,8 @@ function getGenresString(genres) {
     console.log(resultString)
     return resultString;
 }
-
+*/
+/*
 function filterAndExtractNames(movies) {
     // Функция для извлечения имен из массива объектов
     const extractNames = (array, position) =>
@@ -104,33 +113,16 @@ function filterAndExtractNames(movies) {
     return { directors, producers, composers, montage};
 }
 
-function concatenateStrings(arr) {
-    if (arr && arr.length > 0) {
-        return arr.join(', ');
-    } else {
-        return '???';
-    }
-}
+ */
 
-function findUniqueJobTypes(data) {
-    if (!data || !Array.isArray(data)) {
-        console.error('Invalid input. Please provide an array of objects.');
-        return [];
-    }
+// function concatenateStrings(arr) {
+//     if (arr && arr.length > 0) {
+//         return arr.join(', ');
+//     } else {
+//         return '???';
+//     }
+// }
 
-    const jobTypes = [];
-
-    data.forEach((item) => {
-        if (item && typeof item === 'object' && 'job' in item) {
-            const jobType = item.job;
-            if (!jobTypes.includes(jobType)) {
-                jobTypes.push(jobType);
-            }
-        }
-    });
-
-    return jobTypes;
-}
 
 /*
 Cast:
@@ -144,16 +136,13 @@ class MovieMainInfo extends React.Component {
         const movie = data.movie;
         const credits = data.credits
         const roundedVote = Math.round(movie.vote_average * 10);
-        console.log(credits.cast)
-        console.log(findUniqueJobTypes(credits.crew))
         const command = filterAndExtractNames(credits.crew);
-        console.log(command)
         const directors = concatenateStrings(command.directors)
         const composer = concatenateStrings(command.composers)
         const producer = concatenateStrings(command.producers)
         const montage = concatenateStrings(command.montage)
         if (!movie || !credits) {
-            return null; // Можно также добавить заглушку, спиннер или другой компонент загрузки
+            return null; 
         }
         return (<div id="mainInfo" className="order-2 col-lg-8 col-md-8 col-xl-8 col-8 ps-5">
             <span id="name">
