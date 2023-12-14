@@ -2,7 +2,8 @@ import React from "react";
 import {withData} from "../hoc-helpers";
 import {withRouter} from "react-router-dom";
 import {MapiServiceConsumer} from "../mapi-service-context";
-
+import extractYearFromDate from "../../functions/extractYearFromDate";
+/*
 function extractYearFromDate(dateString) {
     // Проверяем, определена ли строка даты
     if (!dateString) {
@@ -25,7 +26,7 @@ function extractYearFromDate(dateString) {
 
     return ''; // Возвращаем значение по умолчанию или обрабатываем ошибку по вашему усмотрению
 }
-
+*/
 function minToHours(min) {
     // Проверяем, определено ли значение
     if (min === null || typeof min === 'undefined') {
@@ -99,8 +100,36 @@ function filterAndExtractNames(movies) {
     const directors = extractNames(movies, 'Director');
     const producers = extractNames(movies, 'Producer');
     const composers = extractNames(movies, 'Original Music Composer');
+    const montage = extractNames(movies,'Editor')
+    return { directors, producers, composers, montage};
+}
 
-    return { directors, producers, composers };
+function concatenateStrings(arr) {
+    if (arr && arr.length > 0) {
+        return arr.join(', ');
+    } else {
+        return '???';
+    }
+}
+
+function findUniqueJobTypes(data) {
+    if (!data || !Array.isArray(data)) {
+        console.error('Invalid input. Please provide an array of objects.');
+        return [];
+    }
+
+    const jobTypes = [];
+
+    data.forEach((item) => {
+        if (item && typeof item === 'object' && 'job' in item) {
+            const jobType = item.job;
+            if (!jobTypes.includes(jobType)) {
+                jobTypes.push(jobType);
+            }
+        }
+    });
+
+    return jobTypes;
 }
 
 /*
@@ -112,15 +141,24 @@ job : Producer
 class MovieMainInfo extends React.Component {
     render() {
         const {data} = this.props;
-        const roundedVote = Math.round(data.vote_average * 10);
-
-        if (!data) {
+        const movie = data.movie;
+        const credits = data.credits
+        const roundedVote = Math.round(movie.vote_average * 10);
+        console.log(credits.cast)
+        console.log(findUniqueJobTypes(credits.crew))
+        const command = filterAndExtractNames(credits.crew);
+        console.log(command)
+        const directors = concatenateStrings(command.directors)
+        const composer = concatenateStrings(command.composers)
+        const producer = concatenateStrings(command.producers)
+        const montage = concatenateStrings(command.montage)
+        if (!movie || !credits) {
             return null; // Можно также добавить заглушку, спиннер или другой компонент загрузки
         }
         return (<div id="mainInfo" className="order-2 col-lg-8 col-md-8 col-xl-8 col-8 ps-5">
             <span id="name">
-                <h3 className="fw-bold">{data.title} ({extractYearFromDate(data.release_date)})</h3>
-            <h5 className="text-muted fw-light">{data.original_title}</h5>
+                <h3 className="fw-bold">{movie.title} ({extractYearFromDate(movie.release_date)})</h3>
+            <h5 className="text-muted fw-light">{movie.original_title}</h5>
             </span>
 
             <div id="smallMedia" className="d-block d-lg-none d-md-none d-xl-none">
@@ -129,7 +167,7 @@ class MovieMainInfo extends React.Component {
               </span>
                 <br/>
                 <span id="countVotesSmMedia" className="text-muted">
-                {data.vote_count}
+                {movie.vote_count}
               </span>
                 <span>
               <button id="btnRate" className="btn btn-primary rateSmMedia mt-0">
@@ -156,20 +194,20 @@ class MovieMainInfo extends React.Component {
                         <span id="director" className="fill d-block">
                   Director
                 </span>
-                        <span id="writer" className="fill d-block">
-                  Writer
+                        <span id="budget" className="fill d-block">
+                  budget
                 </span>
                         <span id="compositer" className="fill d-block">
                   Compositer
                 </span>
-                        <span id="art" className="fill d-block">
-                  Art
+                        <span id="producer" className="fill d-block">
+                  Producer
                 </span>
                         <span id="montage" className="fill d-block">
                   Montage
                 </span>
-                        <span id="age" className="fill d-block">
-                  Age
+                        <span id="tagline" className="fill d-block">
+                  TagLine
                 </span>
                         <span id="MPAArating" className="fill d-block">
                   MPAA Rating
@@ -180,37 +218,37 @@ class MovieMainInfo extends React.Component {
                     </div>
                     <div className="order-2 col-6 d-none d-lg-block d-md-block d-xl-block">
                 <span id="yearContent" className="fillContent d-block">
-                  {extractYearFromDate(data.release_date)}
+                  {extractYearFromDate(movie.release_date)}
                 </span>
                         <span id="countryContent" className="fillContent d-block">
-                  {getProductionCountriesString(data.production_countries)}
+                  {getProductionCountriesString(movie.production_countries)}
                 </span>
                         <span id="genreContent" className="fillContent d-block">
-                    {getGenresString(data.genres)}
+                    {getGenresString(movie.genres)}
                 </span>
                         <span id="directorContent" className="fillContent d-block">
-                  Greta Gerwig
+                  {directors}
                 </span>
-                        <span id="writerContent" className="fillContent d-block">
-                  Greta Gerwig, Noah Baumbach
+                        <span id="budgetContent" className="fillContent d-block">
+                  {movie.budget}
                 </span>
                         <span id="compositerContent" className="fillContent d-block">
-                  Mark Ronson
+                  {composer}
                 </span>
-                        <span id="artContent" className="fillContent d-block">
-                  Din Klegg
+                        <span id="producerContent" className="fillContent d-block">
+                  {producer}
                 </span>
                         <span id="montageContent" className="fillContent d-block">
-                  Nick Hugh
+                  {montage}
                 </span>
-                        <span id="ageContent" className="fillContent d-block">
-                  13+
+                        <span id="tagLineContent" className="fillContent d-block">
+                  {movie.tagline}
                 </span>
                         <span id="MPAAratingContent" className="fillContent d-block">
                   PG-13
                 </span>
                         <span id="durationContent" className="fillContent d-block">
-                  {data.runtime} min / {minToHours(data.runtime)} hrs
+                  {movie.runtime} min / {minToHours(movie.runtime)} hrs
                 </span>
                     </div>
                 </div>
@@ -228,7 +266,7 @@ const MovieMainDataWithDataAndContext = withRouter(({ match }) => (
     <MapiServiceConsumer>
         {(mapiService) => (
             <MovieMainInfoWithData
-                getData={() => mapiService.getMovie(match.params.id)}
+                getData={() => mapiService.getMovieData(match.params.id)}
             />
         )}
     </MapiServiceConsumer>
