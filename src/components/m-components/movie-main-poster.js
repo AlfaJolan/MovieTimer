@@ -9,7 +9,9 @@ const mapPosterMethodsToProps = (mapiService) => {
        getData: mapiService.getMovie
     }
 }
-
+/*
 const MovieMainPosterComponent = compose(withMapiService(mapPosterMethodsToProps()),withData)(MovieMainPoster)
-
+*/
+const MovieMainPosterComponent = MovieMainPoster;
 export default MovieMainPosterComponent;
+

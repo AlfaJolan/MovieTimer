@@ -1,22 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import Carousel from "./carousel/carousel";
+import TableWithDataWithContext from "../table";
 
 const MainContent = ({ movies }) => {
     console.log(movies)
     return (
         <main className="container">
             <div className="d-flex flex-row">
-                <div
-                    id="Ad1"
-                    className="order-1 col-lg-2 col-md-2 col-xl-2 col-none d-none d-md-block d-lg-block d-xl-block position-sticky sticky-top"
-                >
+                <div id="Ad"
+                     className="order-1 col-lg-1 col-md-1 col-xl-1 col-none d-none d-md-block d-lg-block d-xl-block">
                     <p>AD image</p>
                 </div>
-
                 <section
                     id="content"
-                    className="order-2 col-lg-8 col-md-8 col-xl-8 col-12 order-sm-1 mx-2">
+                    className="order-2 col-lg-10 col-md-10 col-xl-10 col-12 order-sm-1 mx-2">
                     <div className="container-xxl">
                         <div className="container">
                             <h3 className="border-start border-3 border-primary ps-1">
@@ -26,13 +24,18 @@ const MainContent = ({ movies }) => {
                             <hr/>
                         </div>
                     </div>
-                    <h3 className="border-start border-3 border-primary mb-4 ps-1">Punch Articles</h3>
+                    <h3 className="border-start border-3 border-primary mb-4 ps-1">We recommend : </h3>
+
+                    <div className="container-xxl">
+                        <div className="container">
+                            <TableWithDataWithContext/>
+                            <hr/>
+                        </div>
+                    </div>
 
                 </section>
-                <div
-                    id="Ad2"
-                    className="order-3 col-lg-2 col-md-2 col-xl-2 col-none d-none d-md-block d-xl-block"
-                >
+                <div id="Ad"
+                     className="order-1 col-lg-1 col-md-1 col-xl-1 col-none d-none d-md-block d-lg-block d-xl-block">
                     <p>AD image</p>
                 </div>
             </div>

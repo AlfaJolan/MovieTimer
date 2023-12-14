@@ -37,6 +37,33 @@ export default class MapiService{
         return res.results;
     };
 
+    getRecommendedMovies1 = async() => {
+        const res = await this.getResource('/movie/top_rated?');
+        console.log(res.results);
+        return res.results;
+    }
+
+    _transformMovie = (movie) => {
+        return {
+            id: movie.id,
+            title: movie.title,
+            vote_average: movie.vote_average,
+            release_date: movie.release_date,
+            overview: movie.overview,
+            // Добавьте другие поля по необходимости
+        };
+    }
+
+    getRecommendedMovies = async () => {
+        try {
+            const res = await this.getResource('/movie/top_rated?');
+            return res.results.map(this._transformMovie);
+        } catch (error) {
+            console.error('Error fetching recommended movies:', error);
+            throw error;
+        }
+    }
+
 
     searchMovies = async (query) => {
         const res = await this.getResource(`/search/movie?query=${query}`);

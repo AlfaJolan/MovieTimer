@@ -1,16 +1,15 @@
 import React from "react"
 import Spinner from "../spinner";
 import {ErrorIndicator, NotFoundIndicator} from "../errors";
-
+import WelcomeHeader from "../welcome-header/welcome";
+import MapiService from "../../services/mapi-service";
 const WelcomePage = () => {
+    const mapiService = new MapiService();
+    console.log(mapiService.getMovie(550));
+
     return (
         <div className={"container"}>
-            {/*Is this experimental page for error indicator*/}
-            Welcome to the MovieTimer online movie DB website.
-
-            Here you can find some new movies, and watch
-
-            Go To Main Page!
+           <WelcomeHeader />
         </div>
     )
 }
