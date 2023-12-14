@@ -77,12 +77,12 @@ export default class MapiService{
             title: movie.title,
             vote_average: movie.vote_average,
             vote_count: movie.vote_count,
-
             release_date: movie.release_date,
             overview: movie.overview,
             popularity: movie.popularity,
             runtime: movie.runtime,
-            original_title:movie.original_title
+            original_title:movie.original_title,
+            production_countries: movie.production_countries,
 
             /*
             Art, Writer, Genre, AGE, MPAA Rating, Duration, Country, Year, Original Title, Vote,
