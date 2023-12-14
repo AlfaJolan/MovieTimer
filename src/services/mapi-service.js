@@ -65,14 +65,36 @@ export default class MapiService{
     }
 
 
+
     searchMovies = async (query) => {
         const res = await this.getResource(`/search/movie?query=${query}`);
         return res.results;
     };
 
+    _transformMovieDetails = (movie) => {
+        return {
+            id: movie.id,
+            title: movie.title,
+            vote_average: movie.vote_average,
+            vote_count: movie.vote_count,
+
+            release_date: movie.release_date,
+            overview: movie.overview,
+            popularity: movie.popularity,
+            runtime: movie.runtime,
+            original_title:movie.original_title
+
+            /*
+            Art, Writer, Genre, AGE, MPAA Rating, Duration, Country, Year, Original Title, Vote,
+             */
+            // Добавьте другие поля по необходимости
+        };
+    }
+
     getMovie = async (id) => {
         const res = await this.getResource(`/movie/${id}?language=en-US`)
-        return res.result;
+        console.log(res)
+        return res;
     }
     searchMoviesAdvanced = async ({ query, includeAdult, language, primaryReleaseYear, page, year }) => {
         const params = new URLSearchParams();

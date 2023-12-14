@@ -16,17 +16,23 @@ const Footer = () => {
                         <h5>Sections</h5>
 
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><a href="main.html"
-                                                             className="nav-link p-0 text-muted">Home</a></li>
-                            <li className="nav-item mb-2"><a href="main.html#articles"
-                                                             className="nav-link p-0 text-muted">Latest Articles</a>
+                            <li className="nav-item mb-2">
+                                <Link to ="/main" className = "nav-link p-0 text-muted">Home</Link>
+                                <a href="main.html" className="nav-link p-0 text-muted">Home</a>
                             </li>
-                            <li className="nav-item mb-2"><a href="about.html" className="nav-link p-0 text-muted">About
-                                us</a></li>
-                            <li className="nav-item mb-2"><a href="donuts.html"
-                                                             className="nav-link p-0 text-muted">Donation</a></li>
-                            <li className="nav-item mb-2"><a href="about.html#FAQ"
-                                                             className="nav-link p-0 text-muted">FAQs</a></li>
+                            <li className="nav-item mb-2">
+                                <Link to ="/main#recommend" className = "nav-link p-0 text-muted">We Recommend</Link>
+                                <a href="main.html#articles" className="nav-link p-0 text-muted">We Recommend!</a>
+                            </li>
+                            <li className="nav-item mb-2">
+                                <a href="about.html" className="nav-link p-0 text-muted">About us</a>
+                            </li>
+                            <li className="nav-item mb-2">
+                                <a href="donuts.html" className="nav-link p-0 text-muted">Donation</a>
+                            </li>
+                            <li className="nav-item mb-2">
+                                <a href="about.html#FAQ" className="nav-link p-0 text-muted">FAQs</a>
+                            </li>
                         </ul>
                     </div>
 

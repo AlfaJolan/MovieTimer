@@ -21,6 +21,7 @@ import MapiService from "../../services/mapi-service";
 import {MapiServiceProvider} from "../mapi-service-context/mapi-service-context";
 import {ErrorIndicator, NotFoundIndicator} from "../errors";
 import ErrorBoundary from "../error-boundary/error-boundary";
+import SecretPage from "../pages/secret-page";
 
 
 export default class App extends Component{
@@ -61,7 +62,7 @@ export default class App extends Component{
                                     render={() => (
                                         // Header и Footer не отображаются на странице login and register
                                         <Switch>
-                                            <Route path="/login" render={() => <LoginPage />} exact />
+                                            <Route path="/login" render={() => <LoginPage isLoggedIn={ isLoggedIn } onLogin={() => this.onLogin()} />} exact />
                                         </Switch>
                                     )}
                                 />
@@ -83,7 +84,8 @@ export default class App extends Component{
                                         <Route path = "/main_test" component = {MainTest} exact />
                                         <Route path = "/search" component = {SearchPage} exact />
                                         <Route path = "/main" component = {MainPage} exact />
-                                        <Route path = "/movie:id?" component = {MovieInfo} exact />
+                                        <Route path = "/movie/:id?" component = {MovieInfo} exact />
+                                        <Route path = "/secret" component = {SecretPage} exact/>
                                         <Route component = {NotFoundIndicator} />
                                     </Switch>
                                     <Footer />
