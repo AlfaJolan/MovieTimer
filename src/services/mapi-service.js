@@ -83,6 +83,7 @@ export default class MapiService{
             runtime: movie.runtime,
             original_title:movie.original_title,
             production_countries: movie.production_countries,
+            genres: movie.genres,
 
             /*
             Art, Writer, Genre, AGE, MPAA Rating, Duration, Country, Year, Original Title, Vote,
@@ -91,11 +92,41 @@ export default class MapiService{
         };
     }
 
+    getMovieCredits = async (id) => {
+        const res = await this.getResource(`/movie/${id}/credits?language=en-US`)
+        console.log(res)
+        return res;
+    }
+
     getMovie = async (id) => {
         const res = await this.getResource(`/movie/${id}?language=en-US`)
         console.log(res)
         return res;
     }
+
+    getMovieData = async (id) => {
+        try {
+            // Вызываем обе функции асинхронно
+            const [movieRes, creditsRes] = await Promise.all([
+                this.getMovie(id),
+                this.getMovieCredits(id)
+            ]);
+
+            // Объединяем результаты в один объект
+            const movieData = {
+                movie: movieRes,
+                credits: creditsRes
+            };
+
+            console.log(movieData);
+            return movieData;
+        } catch (error) {
+            console.error('Error fetching movie data:', error);
+            throw error; // Можно обработать ошибку по вашему усмотрению
+        }
+    }
+
+
     searchMoviesAdvanced = async ({ query, includeAdult, language, primaryReleaseYear, page, year }) => {
         const params = new URLSearchParams();
 

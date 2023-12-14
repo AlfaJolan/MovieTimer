@@ -53,6 +53,62 @@ function minToHours(min) {
     return `${formattedHours}:${formattedMinutes}`;
 }
 
+function getProductionCountriesString(productionCountries) {
+    if (!Array.isArray(productionCountries) || productionCountries.length === 0) {
+        return 'No Data';
+    }
+
+    // Извлекаем имена стран из массива
+    const countryNames = productionCountries
+        .slice(0, 3) // Берем максимум три страны
+        .map(country => country.iso_3166_1);
+
+    // Преобразуем массив имен в строку
+    const resultString = countryNames.join(', ');
+
+    return resultString;
+}
+
+function getGenresString(genres) {
+    if (!Array.isArray(genres) || genres.length === 0) {
+        return 'No data about Genres';
+    }
+
+    console.log(genres)
+
+    // Извлекаем имена жанров из массива
+    const genreNames = genres
+        .slice(0, 3) // Берем максимум четыре жанра
+        .map(genre => genre.name);
+
+    // Преобразуем массив имен в строку
+    const resultString = genreNames.join(', ');
+    console.log(resultString)
+    return resultString;
+}
+
+function filterAndExtractNames(movies) {
+    // Функция для извлечения имен из массива объектов
+    const extractNames = (array, position) =>
+        array
+            .filter(item => item.job === position)
+            .slice(0, 3)
+            .map(item => item.name);
+
+    // Создаем массивы с именами для каждой должности
+    const directors = extractNames(movies, 'Director');
+    const producers = extractNames(movies, 'Producer');
+    const composers = extractNames(movies, 'Original Music Composer');
+
+    return { directors, producers, composers };
+}
+
+/*
+Cast:
+job : Director
+job : Producer
+      "job": "Original Music Composer"
+ */
 class MovieMainInfo extends React.Component {
     render() {
         const {data} = this.props;
@@ -127,10 +183,10 @@ class MovieMainInfo extends React.Component {
                   {extractYearFromDate(data.release_date)}
                 </span>
                         <span id="countryContent" className="fillContent d-block">
-                  {data.title}
+                  {getProductionCountriesString(data.production_countries)}
                 </span>
                         <span id="genreContent" className="fillContent d-block">
-                  Comedy
+                    {getGenresString(data.genres)}
                 </span>
                         <span id="directorContent" className="fillContent d-block">
                   Greta Gerwig
@@ -161,7 +217,6 @@ class MovieMainInfo extends React.Component {
             </div>
 
             <div id="movieReviews" className="container">
-
             </div>
         </div>)
     }
