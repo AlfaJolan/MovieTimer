@@ -22,6 +22,7 @@ export default class MainPage extends Component{
     }
 
     componentWillUnmount() {
+
     }
 
     onMoviesLoaded = (movies) => {

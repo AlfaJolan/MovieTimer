@@ -19,6 +19,7 @@ export default class MainTest extends Component{
     }
 
     componentWillUnmount() {
+
     }
 
     onMoviesLoaded = (movies) => {
