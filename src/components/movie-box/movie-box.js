@@ -1,8 +1,9 @@
 import { Modal,show,Button} from 'react-bootstrap';
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
-const MovieBox =({title, poster_path, vote_average, release_date, overview})=>{
+const MovieBox =({id, title, poster_path, vote_average, release_date, overview})=>{
     
     const [show, setShow]=useState(false);
 
@@ -29,6 +30,7 @@ const MovieBox =({title, poster_path, vote_average, release_date, overview})=>{
                       <p>{overview}</p>
                       </Modal.Body>
                       <Modal.Footer>
+                          <Link to ={`/movie/${id}#movie`} className="btn btn-primary">Full </Link>
                           <Button variant="secondary" onClick={handleClose}>Close</Button>
                       </Modal.Footer>
                   </Modal>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { MapiServiceConsumer } from '../path/to/MapiServiceContext'; // Замените на путь к вашему контексту
-import withData from '../path/to/withData'; // Замените на путь к вашему HOC withData
+import { MapiServiceConsumer } from "../mapi-service-context";
+import { withData } from "../hoc-helpers";
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
 const Poster = ({ data }) => (
@@ -14,8 +14,7 @@ const Poster = ({ data }) => (
 
 const PosterWithData = withData(Poster);
 
-// Wrap MovieMainPosterWithData with MapiServiceConsumer to access context data
-// Используем withRouter для доступа к объекту match и извлечения id из URL
+
 const PosterWithDataAndContext = withRouter(({ match }) => (
     <MapiServiceConsumer>
         {(mapiService) => (

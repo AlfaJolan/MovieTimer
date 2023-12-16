@@ -1,8 +1,9 @@
 import React from "react";
 import './carousel2.css'
+import {Link} from "react-router-dom";
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
-const Card = ({title, poster_path, vote_average, release_date, overview}) => {
+const Card = ({id, title, poster_path, vote_average, release_date, overview}) => {
     const roundedVote = Math.round(vote_average * 10);
     return (
         <div className="carousel-item">
@@ -27,9 +28,9 @@ const Card = ({title, poster_path, vote_average, release_date, overview}) => {
                         </svg>
                         <b>{`${roundedVote}%`}</b>
                     </p>
-                    <a href={"/main"} className="btn btn-primary">
+                    <Link to ={`/movie/${id}#movie`} className="btn btn-primary">
                         Read Full
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

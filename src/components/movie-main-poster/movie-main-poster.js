@@ -1,8 +1,9 @@
 import React from "react";
 import { MapiServiceConsumer } from "../mapi-service-context";
-import { withData } from "../hoc-helpers"; // Замените на фактический путь
-import { withRouter } from "react-router-dom"; // Добавлен новый импорт
-//import "./movie-main-poster.css"; // Замените на фактический путь
+import { withData } from "../hoc-helpers";
+import { withRouter } from "react-router-dom";
+import PosterWithDataAndContext from "./poster";
+import "./movie-main-poster.css"; // Замените на фактический путь
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
 class MovieMainPoster extends React.Component {
@@ -15,11 +16,7 @@ class MovieMainPoster extends React.Component {
 
         return (
             <div id ="main-poster" className= "order-1 col-lg-3 col-md-3 col-xl-3 col-4 mx-1">
-                <img
-                    src={API_IMG + data.poster_path}
-                    alt={data.title}
-                    className="d-block w-100"
-                />
+                <PosterWithDataAndContext></PosterWithDataAndContext>
                 <div id="media" className={"container ps-0 pe-0 mt-1 d-none d-lg-block d-md-block d-xl-block p-1"}>
                     {/* Дополнительные детали или компоненты по необходимости */}
                     <div className="trailer embed-responsive">

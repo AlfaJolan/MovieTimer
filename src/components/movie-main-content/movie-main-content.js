@@ -7,6 +7,7 @@ import MovieMainInfo from "../movie-main-info/movie-main-info";
 import MovieMainPosterWithDataAndContext from "../movie-main-poster";
 import "./movie-main-content.css"
 import MovieMainDataWithDataAndContext from "../movie-main-info/movie-main-info";
+import DescriptionWithDataAndContext from "../movie-main-description";
 
 const MovieMainContent = (props) => {
     const {id} = props
@@ -36,11 +37,7 @@ const MovieMainContent = (props) => {
                             {/*<MovieMainInfo/>*/}
                         </div>
                         <div id="decription" className="px-3 mt-5 w-65">
-                            <h3>Sinopsis</h3>
-                            <p>
-                                To live in Barbie Land is to be a perfect being in a perfect place. Unless you have a
-                                full-on existential crisis. Or you're a Ken.
-                            </p>
+                            <DescriptionWithDataAndContext />
                         </div>
                     </section>
                 </section>

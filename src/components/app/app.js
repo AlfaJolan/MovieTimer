@@ -85,7 +85,7 @@ export default class App extends Component{
                                         <Route path = "/search" component = {SearchPage} exact />
                                         <Route path = "/main" component = {MainPage} exact />
                                         <Route path = "/movie/:id?" component = {MovieInfo} exact />
-                                        <Route path = "/secret" component = {SecretPage} exact/>
+                                        <Route path = "/secret" render={() => <SecretPage isLoggedIn={ isLoggedIn } />} exact/>
                                         <Route component = {NotFoundIndicator} />
                                     </Switch>
                                     <Footer />

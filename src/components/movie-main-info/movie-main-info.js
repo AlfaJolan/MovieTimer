@@ -80,14 +80,14 @@ class MovieMainInfo extends React.Component {
                         <span id="montage" className="fill d-block">
                   Montage
                 </span>
-                        <span id="tagline" className="fill d-block">
-                  TagLine
-                </span>
                         <span id="MPAArating" className="fill d-block">
                   MPAA Rating
                 </span>
                         <span id="duration" className="fill d-block">
                   Duration
+                </span>
+                        <span id="tagline" className="fill d-block">
+                  TagLine
                 </span>
                     </div>
                     <div className="order-2 col-6 d-none d-lg-block d-md-block d-xl-block">
@@ -115,14 +115,14 @@ class MovieMainInfo extends React.Component {
                         <span id="montageContent" className="fillContent d-block">
                   {montage}
                 </span>
-                        <span id="tagLineContent" className="fillContent d-block">
-                  {movie.tagline}
-                </span>
                         <span id="MPAAratingContent" className="fillContent d-block">
                   PG-13
                 </span>
                         <span id="durationContent" className="fillContent d-block">
                   {movie.runtime} min / {minToHours(movie.runtime)} hrs
+                </span>
+                        <span id="tagLineContent" className="fillContent d-block">
+                  {movie.tagline}
                 </span>
                     </div>
                 </div>
