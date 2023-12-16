@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {withMapiService} from "../hoc-helpers";
 import MovieMainPoster from "../movie-main-poster";
@@ -10,6 +10,7 @@ import MovieMainDataWithDataAndContext from "../movie-main-info/movie-main-info"
 
 const MovieMainContent = (props) => {
     const {id} = props
+
 
     return (
 

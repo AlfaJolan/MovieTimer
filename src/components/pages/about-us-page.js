@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { withRouter } from 'react-router-dom'
 
 const AboutUsPage = () => {
+    useEffect(() => {
+        const hash = window.location.hash.substr(1);
+        if (hash === 'FAQ') {
+            const element = document.getElementById(hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, []);
     return (
         <main className={"container"}>
             <div className="d-flex flex-row">

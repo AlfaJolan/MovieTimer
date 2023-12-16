@@ -18,20 +18,18 @@ const Footer = () => {
                         <ul className="nav flex-column">
                             <li className="nav-item mb-2">
                                 <Link to ="/main" className = "nav-link p-0 text-muted">Home</Link>
-                                <a href="main.html" className="nav-link p-0 text-muted">Home</a>
                             </li>
                             <li className="nav-item mb-2">
-                                <Link to ="/main#recommend" className = "nav-link p-0 text-muted">We Recommend</Link>
-                                <a href="main.html#articles" className="nav-link p-0 text-muted">We Recommend!</a>
+                                <Link to ="/main#recommend" className = "nav-link p-0 text-muted">We Recommend!</Link>
                             </li>
                             <li className="nav-item mb-2">
-                                <a href="about.html" className="nav-link p-0 text-muted">About us</a>
+                                <Link to ="/about-us" className = "nav-link p-0 text-muted">About Us</Link>
                             </li>
                             <li className="nav-item mb-2">
-                                <a href="donuts.html" className="nav-link p-0 text-muted">Donation</a>
+                                <Link to ="/donations" className = "nav-link p-0 text-muted">Donations</Link>
                             </li>
                             <li className="nav-item mb-2">
-                                <a href="about.html#FAQ" className="nav-link p-0 text-muted">FAQs</a>
+                                <Link to ="/about-us#FAQ" className = "nav-link p-0 text-muted">FAQ</Link>
                             </li>
                         </ul>
                     </div>
@@ -53,7 +51,7 @@ const Footer = () => {
                 <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
                     <p>© 2023. MovieTimer, rights? What is it?</p>
                     <ul className="list-unstyled d-flex">
-                        <li className="ms-3"><a className="link-dark" href="#">
+                        <li className="ms-3"><a className="link-dark" href="https://twitter.com">
                             <svg className="bi" width="24" height="24">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      className="bi bi-twitter-x" viewBox="0 0 16 16">
@@ -63,7 +61,7 @@ const Footer = () => {
                             </svg>
                         </a></li>
 
-                        <li className="ms-3"><a className="link-dark" href="#">
+                        <li className="ms-3"><a className="link-dark" href="https://www.instagram.com">
                             <svg className="bi" width="24" height="24">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      className="bi bi-instagram" viewBox="0 0 16 16">
@@ -73,7 +71,7 @@ const Footer = () => {
                             </svg>
 
                         </a></li>
-                        <li className="ms-3"><a className="link-dark" href="#">
+                        <li className="ms-3"><a className="link-dark" href="https://www.facebook.com">
                             <svg className="bi" width="24" height="24">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      className="bi bi-facebook" viewBox="0 0 16 16">

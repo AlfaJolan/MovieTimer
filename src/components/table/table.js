@@ -14,6 +14,7 @@ class Table extends React.Component {
                     <th>Vote Average</th>
                     <th>Release Date</th>
                     <th>Overview</th>
+                    <th>Link</th>
                 </tr>
                 </thead>
                 <tbody>
