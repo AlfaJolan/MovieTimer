@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import MapiService from "../../services/mapi-service";
 import {ErrorIndicator} from "../errors";
 import Spinner from "../spinner";
+import TicketPurchaseTimer from "../purchase-ticket" // Замените путь на актуальный
 
 import {MainContent} from "../m-components";
 import "../m-components/carousel/carousel-script"
@@ -14,7 +15,8 @@ export default class MainPage extends Component{
     state = {
         movies: {},
         loading: true,
-        error: false
+        error: false,
+        showTicketPurchaseMessage: false,
     }
 
     componentDidMount(){
@@ -22,7 +24,9 @@ export default class MainPage extends Component{
     }
 
     componentWillUnmount() {
-
+        if (this.timerId) {
+            clearTimeout(this.timerId);
+        }
     }
 
     onMoviesLoaded = (movies) => {
@@ -43,12 +47,21 @@ export default class MainPage extends Component{
         this.mapiService
             .getUpcomingMovies()
             .then(this.onMoviesLoaded)
-            .catch((err) => this.onError())
+            .catch((err) => this.onError());
+
+
+        this.timerId = setTimeout(() => {
+            this.setState({ showTicketPurchaseMessage: true });
+
+            // Выводим alert после 2 минут
+            alert("Bonus Time Is End");
+            this.forceUpdate();
+        }, 15000);
     }
 
 
     render() {
-        const {movies, loading, error} = this.state
+        const {movies, loading, error, showTicketPurchaseMessage} = this.state
         const hasData = !(loading || error)
         console.log(movies)
         const errorMessage = error ? <ErrorIndicator />: null
@@ -62,6 +75,7 @@ export default class MainPage extends Component{
                 {errorMessage}
                 {spinner}
                 {content}
+                {showTicketPurchaseMessage && <TicketPurchaseTimer />}
             </div>
         );
     }

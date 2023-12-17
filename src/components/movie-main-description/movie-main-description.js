@@ -1,6 +1,6 @@
 import React from "react";
 import { MapiServiceConsumer } from "../mapi-service-context";
-import { withData } from "../hoc-helpers";
+import {myCompose, withData, withMapiServiceMethod} from "../hoc-helpers";
 import { withRouter } from "react-router-dom";
 
 const Sinopsis =({overview}) => {
@@ -11,6 +11,13 @@ const Sinopsis =({overview}) => {
 }
 
 class Description extends React.Component {
+    componentDidMount() {
+        const { getData } = this.props;
+
+        if (getData) {
+            getData(this.props.match);
+        }
+    }
     render() {
         const { data } = this.props;
 
@@ -28,11 +35,12 @@ class Description extends React.Component {
     }
 }
 
-// Wrap MovieMainPoster with withData HOC
+
+
+
 const DescriptionWithData = withData(Description);
 
-// Wrap MovieMainPosterWithData with MapiServiceConsumer to access context data
-// Используем withRouter для доступа к объекту match и извлечения id из URL
+
 const DescriptionWithDataAndContext = withRouter(({match}) => (
     <MapiServiceConsumer>
         {(mapiService) => (
@@ -43,7 +51,4 @@ const DescriptionWithDataAndContext = withRouter(({match}) => (
     </MapiServiceConsumer>
 ));
 
-export default DescriptionWithDataAndContext
-
-
-
+export default DescriptionWithDataAndContext;

@@ -1,13 +1,14 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-import {withMapiService} from "../hoc-helpers";
-import MovieMainPoster from "../movie-main-poster";
-import MovieMainPosterComponent from "../m-components/movie-main-poster";
-import MovieMainInfo from "../movie-main-info/movie-main-info";
-import MovieMainPosterWithDataAndContext from "../movie-main-poster";
+
+
 import "./movie-main-content.css"
-import MovieMainDataWithDataAndContext from "../movie-main-info/movie-main-info";
+import MovieMainPosterWithDataAndContext from "../movie-main-poster";
 import DescriptionWithDataAndContext from "../movie-main-description";
+import MovieMainDataWithDataAndContext from "../movie-main-info";
+
+
+
 
 const MovieMainContent = (props) => {
     const {id} = props

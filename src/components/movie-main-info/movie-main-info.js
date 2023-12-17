@@ -133,6 +133,7 @@ class MovieMainInfo extends React.Component {
         </div>)
     }
 }
+//export default MovieMainInfo;
 
 const MovieMainInfoWithData = withData(MovieMainInfo);
 
@@ -147,3 +148,4 @@ const MovieMainDataWithDataAndContext = withRouter(({ match }) => (
 ));
 
 export default MovieMainDataWithDataAndContext
+

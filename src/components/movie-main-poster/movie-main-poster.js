@@ -31,6 +31,7 @@ class MovieMainPoster extends React.Component {
         );
     }
 }
+//export default MovieMainPoster;
 
 // Wrap MovieMainPoster with withData HOC
 const MovieMainPosterWithData = withData(MovieMainPoster);
@@ -48,6 +49,5 @@ const MovieMainPosterWithDataAndContext = withRouter(({ match }) => (
 ));
 
 export default MovieMainPosterWithDataAndContext;
-
 
 
