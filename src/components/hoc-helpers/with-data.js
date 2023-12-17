@@ -77,7 +77,7 @@ const withData = (WrappedComponent) => {
 
             const { getData } = this.props;
 
-            console.log('getData type:', typeof getData); // Добавьте эту строку для отслеживания типа
+            console.log('getData type:', typeof getData);
 
 
             if (typeof getData === 'function') {

@@ -4,7 +4,6 @@ import { withData } from "../hoc-helpers";
 import { withRouter } from "react-router-dom";
 import PosterWithDataAndContext from "./poster";
 import "./movie-main-poster.css"; // Замените на фактический путь
-const API_IMG="https://image.tmdb.org/t/p/w500/";
 
 class MovieMainPoster extends React.Component {
     render() {
@@ -31,13 +30,10 @@ class MovieMainPoster extends React.Component {
         );
     }
 }
-//export default MovieMainPoster;
 
-// Wrap MovieMainPoster with withData HOC
 const MovieMainPosterWithData = withData(MovieMainPoster);
 
-// Wrap MovieMainPosterWithData with MapiServiceConsumer to access context data
-// Используем withRouter для доступа к объекту match и извлечения id из URL
+
 const MovieMainPosterWithDataAndContext = withRouter(({ match }) => (
     <MapiServiceConsumer>
         {(mapiService) => (

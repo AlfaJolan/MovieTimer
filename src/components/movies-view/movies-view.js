@@ -12,7 +12,7 @@ const MoviesView = ({movies}) => {
                     </div>
                 </div>
             ):(
-                <h2>Sorry !! No Movies Found</h2>
+                <h2>No Movies Found My Friend</h2>
             )}
         </React.Fragment>
     )
