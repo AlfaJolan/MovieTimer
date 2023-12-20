@@ -1,7 +1,4 @@
 import React from "react";
-import { MapiServiceConsumer } from "../mapi-service-context";
-import {myCompose, withData, withMapiServiceMethod} from "../hoc-helpers";
-import { withRouter } from "react-router-dom";
 
 const Sinopsis =({overview}) => {
     if(!overview) return (

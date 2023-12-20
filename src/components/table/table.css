@@ -11,6 +11,18 @@
     text-align: left;
 }
 
-.custom-table th {
+.custom-table > th {
     background-color: #f2f2f2; /* Цвет фона заголовка */
+}
+
+.custom-table p::first-line{
+    font-weight: bold;
+}
+.custom-table .btn-sm {
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.custom-table .btn-sm:hover{
+    color: navy;
+    font-weight: bold;
 }
