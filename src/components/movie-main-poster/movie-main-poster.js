@@ -1,16 +1,14 @@
 import React from "react";
-import { MapiServiceConsumer } from "../mapi-service-context";
-import {compose, withData} from "../hoc-helpers";
-import {useParams, withRouter} from "react-router-dom";
+
 import PosterWithDataAndContext from "./poster";
-import "./movie-main-poster.css"; // Замените на фактический путь
+import "./movie-main-poster.css";
 
 class MovieMainPoster extends React.Component {
     render() {
         const { data } = this.props;
 
         if (!data) {
-            return null; // Можно также добавить заглушку, спиннер или другой компонент загрузки
+            return null;
         }
 
         return (
