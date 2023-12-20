@@ -1,7 +1,7 @@
 import React from "react";
 import { MapiServiceConsumer } from "../mapi-service-context";
-import { withData } from "../hoc-helpers";
-import { withRouter } from "react-router-dom";
+import {compose, withData} from "../hoc-helpers";
+import {useParams, withRouter} from "react-router-dom";
 import PosterWithDataAndContext from "./poster";
 import "./movie-main-poster.css"; // Замените на фактический путь
 
@@ -31,6 +31,31 @@ class MovieMainPoster extends React.Component {
     }
 }
 
+export default MovieMainPoster;
+
+/*
+const MovieMainPosterWithDataAndContext = compose(
+    withData,
+    withRouter,
+    (Component) => (props) => {
+        const { id } = useParams(); // useParams hook
+        return (
+            <MapiServiceConsumer>
+                {(mapiService) => (
+                    <Component
+                        {...props}
+                        getData={() => mapiService.getMovie(id)}
+                    />
+                )}
+            </MapiServiceConsumer>
+        );
+    }
+)(MovieMainPoster);
+
+export default MovieMainPosterWithDataAndContext
+*/
+
+/*
 const MovieMainPosterWithData = withData(MovieMainPoster);
 
 
@@ -46,4 +71,4 @@ const MovieMainPosterWithDataAndContext = withRouter(({ match }) => (
 
 export default MovieMainPosterWithDataAndContext;
 
-
+*/

@@ -1,3 +1,3 @@
-import DescriptionWithDataAndContext from "./movie-main-description";
+//import DescriptionWithDataAndContext from "./movie-main-description";
 import Description from "./movie-main-description";
-export default DescriptionWithDataAndContext;
+export default Description;

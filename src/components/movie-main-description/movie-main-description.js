@@ -36,8 +36,8 @@ class Description extends React.Component {
 }
 
 
-
-
+export default Description;
+/*
 const DescriptionWithData = withData(Description);
 
 
@@ -52,3 +52,4 @@ const DescriptionWithDataAndContext = withRouter(({match}) => (
 ));
 
 export default DescriptionWithDataAndContext;
+ */

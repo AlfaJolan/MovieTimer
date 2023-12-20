@@ -3,9 +3,8 @@ import React from 'react'
 
 
 import "./movie-main-content.css"
-import MovieMainPosterWithDataAndContext from "../movie-main-poster";
-import DescriptionWithDataAndContext from "../movie-main-description";
-import MovieMainDataWithDataAndContext from "../movie-main-info";
+import {MovieMainDataWithDataAndContext, MovieMainPosterWithDataAndContext} from "../m-components";
+import DescriptionWithDataAndContext from "../m-components/movie-main-description-HOC";
 
 
 

@@ -1,5 +1,4 @@
-const compose = (...funcs) => (comp) => {
-    return funcs.reduceRight((prevResult, fn) => fn(prevResult), comp)
-}
+const compose = (...functions) => (component) =>
+    functions.reduce((wrapped, fn) => fn(wrapped), component);
 
-export default compose
+export default compose;

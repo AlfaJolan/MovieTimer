@@ -1,11 +1,25 @@
-import {myCompose, withData, withMapiServiceMethod} from "../hoc-helpers";
+import {compose, myCompose, withData, withMapiServiceMethod} from "../hoc-helpers";
 import MovieMainInfo from "../movie-main-info";
-import {withRouter} from "react-router-dom";
+import {useParams, withRouter} from "react-router-dom";
+import {MapiServiceConsumer} from "../mapi-service-context";
+import React from "react";
 
-const MovieMainInfoWithDataAndContext = myCompose(
+const MovieMainDataWithDataAndContext = compose(
     withData,
     withRouter,
-    withMapiServiceMethod('getMovieData')
+    (Component) => (props) => {
+        const { id } = useParams(); // useParams hook
+        return (
+            <MapiServiceConsumer>
+                {(mapiService) => (
+                    <Component
+                        {...props}
+                        getData={() => mapiService.getMovieData(id)}
+                    />
+                )}
+            </MapiServiceConsumer>
+        );
+    }
 )(MovieMainInfo);
 
-//export default MovieMainInfoWithDataAndContext;
+export default MovieMainDataWithDataAndContext
