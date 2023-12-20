@@ -8,6 +8,7 @@ import getProductionCountriesString from "../../functions/getProductionCountries
 import getGenresString from "../../functions/getGenresString";
 import filterAndExtractNames from "../../functions/filterAndExtractNames";
 import concatenateStrings from "../../functions/concatenateStrings";
+import MovieInfoBlock from "../ movie-main-info-block";
 
 /*
 Cast:
@@ -26,6 +27,13 @@ class MovieMainInfo extends React.Component {
         const composer = concatenateStrings(command.composers)
         const producer = concatenateStrings(command.producers)
         const montage = concatenateStrings(command.montage)
+        const year = extractYearFromDate(movie.release_date);
+        const country = getProductionCountriesString(movie.production_countries);
+        const genre = getGenresString(movie.genres);
+        const budget = movie.budget;
+        const duration = `${movie.runtime} min / ${minToHours(movie.runtime)} hrs`;
+        const tagLine = movie.tagline;
+
         if (!movie || !credits) {
             return null; 
         }
@@ -49,85 +57,18 @@ class MovieMainInfo extends React.Component {
               </button>
               </span>
             </div>
-
-            <div id="info">
-              <span>
-                <b>About</b>
-              </span>
-                <div className="row">
-                    <div className="order-1 col-4 d-none d-lg-block d-md-block d-xl-block">
-                <span id="year" className="fill d-block">
-                  Production Year
-                </span>
-                        <span id="country" className="fill d-block">
-                  Country
-                </span>
-                        <span id="genre" className="fill d-block">
-                  Genre
-                </span>
-                        <span id="director" className="fill d-block">
-                  Director
-                </span>
-                        <span id="budget" className="fill d-block">
-                  budget
-                </span>
-                        <span id="compositer" className="fill d-block">
-                  Compositer
-                </span>
-                        <span id="producer" className="fill d-block">
-                  Producer
-                </span>
-                        <span id="montage" className="fill d-block">
-                  Montage
-                </span>
-                        <span id="MPAArating" className="fill d-block">
-                  MPAA Rating
-                </span>
-                        <span id="duration" className="fill d-block">
-                  Duration
-                </span>
-                        <span id="tagline" className="fill d-block">
-                  TagLine
-                </span>
-                    </div>
-                    <div className="order-2 col-6 d-none d-lg-block d-md-block d-xl-block">
-                <span id="yearContent" className="fillContent d-block">
-                  {extractYearFromDate(movie.release_date)}
-                </span>
-                        <span id="countryContent" className="fillContent d-block">
-                  {getProductionCountriesString(movie.production_countries)}
-                </span>
-                        <span id="genreContent" className="fillContent d-block">
-                    {getGenresString(movie.genres)}
-                </span>
-                        <span id="directorContent" className="fillContent d-block">
-                  {directors}
-                </span>
-                        <span id="budgetContent" className="fillContent d-block">
-                  {movie.budget}
-                </span>
-                        <span id="compositerContent" className="fillContent d-block">
-                  {composer}
-                </span>
-                        <span id="producerContent" className="fillContent d-block">
-                  {producer}
-                </span>
-                        <span id="montageContent" className="fillContent d-block">
-                  {montage}
-                </span>
-                        <span id="MPAAratingContent" className="fillContent d-block">
-                  PG-13
-                </span>
-                        <span id="durationContent" className="fillContent d-block">
-                  {movie.runtime} min / {minToHours(movie.runtime)} hrs
-                </span>
-                        <span id="tagLineContent" className="fillContent d-block">
-                  {movie.tagline}
-                </span>
-                    </div>
-                </div>
-            </div>
-
+            <MovieInfoBlock
+                year={year}
+                country={country}
+                genre={genre}
+                directors={directors}
+                budget={budget}
+                composer={composer}
+                producer={producer}
+                montage={montage}
+                duration={duration}
+                tagline={tagLine}
+            />
             <div id="movieReviews" className="container">
             </div>
         </div>)
