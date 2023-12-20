@@ -100,22 +100,4 @@ export default class App extends Component{
             </ErrorBoundary>
         )
     }
-    /*
-     <ErrorBoundary>
-            <MapiServiceProvider value = {mapiService}>
-                <Router>
-                    <div>
-                    <Header />
-                    <Switch>
-                        <Route path = "/" component = {WelcomePage} exact />
-                        <Route path = "/about-us" component = {AboutUs} exact />
-                        <Route path = "/donations" component={Donations} exact />
-                    </Switch>
-                    <Footer />
-                    </div>
-                </Router>
-            </MapiServiceProvider>
-        </ErrorBoundary>
-
-    * */
 }

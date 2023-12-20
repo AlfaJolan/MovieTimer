@@ -9,7 +9,6 @@ import MovieMainDataWithDataAndContext from "../movie-main-info";
 
 
 
-
 const MovieMainContent = (props) => {
     const {id} = props
 

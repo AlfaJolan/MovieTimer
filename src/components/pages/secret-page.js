@@ -13,11 +13,12 @@ const SecretPage = ({isLoggedIn}) => {
                 <BackGroundColorClick>
 
                 <button>Bottom Button Color Changer!</button>
-
+                    <span> Or Span Which Is Also Change Color!</span>
                 </BackGroundColorClick>
+
                 <h2>Table that uses colspan and rowspan</h2>
                 <h2>Shark Population Table</h2>
-
+                <h5>(Shark because i think it is most beautiful and dangerous also not so dangerous animal)</h5>
                 <table>
                     <thead>
                     <tr>
