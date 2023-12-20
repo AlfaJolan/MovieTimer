@@ -7,7 +7,6 @@ import {MovieMainDataWithDataAndContext, MovieMainPosterWithDataAndContext} from
 import DescriptionWithDataAndContext from "../m-components/movie-main-description-HOC";
 
 
-
 const MovieMainContent = (props) => {
     const {id} = props
 

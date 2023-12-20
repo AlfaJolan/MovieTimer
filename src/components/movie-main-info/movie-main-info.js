@@ -76,19 +76,3 @@ class MovieMainInfo extends React.Component {
 }
 export default MovieMainInfo;
 
-/*
-const MovieMainInfoWithData = withData(MovieMainInfo);
-
-const MovieMainDataWithDataAndContext = withRouter(({ match }) => (
-    <MapiServiceConsumer>
-        {(mapiService) => (
-            <MovieMainInfoWithData
-                getData={() => mapiService.getMovieData(match.params.id)}
-            />
-        )}
-    </MapiServiceConsumer>
-));
-
-export default MovieMainDataWithDataAndContext
- */
-

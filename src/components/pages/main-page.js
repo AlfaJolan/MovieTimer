@@ -67,9 +67,6 @@ export default class MainPage extends Component{
         const errorMessage = error ? <ErrorIndicator />: null
         const spinner = loading ? <Spinner /> : null
         const content = hasData ? <MainContent movies={movies}/> : null
-        /*
-            Carousel, must be,
-         */
         return(
             <div className={"container"}>
                 {errorMessage}
